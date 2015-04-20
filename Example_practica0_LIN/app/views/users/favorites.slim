@@ -1,0 +1,22 @@
+h1 Favorite movies
+
+table
+  tr
+    th Name
+
+  - @movies.each do |movie|
+    tr
+      td 
+        - if @my_movies.include? movie
+          | [ * ] 
+        - else
+          | [&nbsp;&nbsp;&nbsp;] 
+
+        = movie.name
+
+      - if @my_movies.include? movie
+        td = link_to 'REMOVE from Favorites', favorite_movie_path(@user, movie)
+      - else
+        td = link_to 'ADD to Favorites', favorite_movie_path(@user, movie)
+
+= link_to 'Back', users_path

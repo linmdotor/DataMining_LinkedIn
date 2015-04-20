@@ -1,0 +1,12 @@
+h1 Movie Data:
+
+p
+	b> Name:
+	= @movie.name
+p
+	b> Genre:
+	= @movie.genre
+	
+p
+=> link_to 'Edit', edit_movie_path(@movie)
+=> link_to 'Back', movies_path

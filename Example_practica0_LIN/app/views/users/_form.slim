@@ -1,0 +1,6 @@
+= simple_form_for(@user) do |f|
+  = f.input :name
+  = f.input :email
+  = f.input :age
+  = f.input :gender, :collection => [:male, :female], :as => :radio_buttons
+  = f.button :submit

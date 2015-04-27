@@ -2,15 +2,15 @@ h1 User Skills
 
 table
   tr
-    th Name
+    th = @user.name.titleize
 
   - @skills.each do |skill|
     tr
       td 
         - if @my_skills.include? skill
-          | [ * ] 
+          = link_to '[ * ]', modify_skills_path(@user, skill)
         - else
-          | [&nbsp;&nbsp;&nbsp;] 
+          = link_to '[ _ ]', modify_skills_path(@user, skill)
 
         = skill.name
 

@@ -13,6 +13,6 @@ table
       td = link_to 'Edit', edit_user_path(user)
       td = link_to 'Destroy', user, 
       method: :destroy, data: { confirm: 'Are you sure?' }
-      td = link_to 'Show/Edit skills', skills_path(user)
+      td = link_to 'Show/Edit skills', my_skills_path(user)
 
 => link_to 'New User', new_user_path

@@ -66,7 +66,7 @@ class UsersController < ApplicationController
 
   #Add or Delete a skill
   def modify_skills
-    @my_skils = @user.skills
+    @my_skills = @user.skills
     skill = Skill.find(params[:skill_id])
 
     unless @my_skills.include? skill

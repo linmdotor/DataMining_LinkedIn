@@ -1,0 +1,17 @@
+h1 User Skills
+
+table
+  tr
+    th Name
+
+  - @skills.each do |skill|
+    tr
+      td 
+        - if @my_skills.include? skill
+          | [ * ] 
+        - else
+          | [&nbsp;&nbsp;&nbsp;] 
+
+        = skill.name
+
+= link_to 'Back', users_path

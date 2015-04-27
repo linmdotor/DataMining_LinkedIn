@@ -1,0 +1,12 @@
+h1 User Data:
+
+p
+	b> Name:
+	= @user.name
+p
+	b> Url:
+	= @user.url
+	
+p
+=> link_to 'Edit', edit_user_path(@user)
+=> link_to 'Back', users_path

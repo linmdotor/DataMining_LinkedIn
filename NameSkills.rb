@@ -27,7 +27,6 @@ def NameSkills(insert_company, urlpage)
 	  			end
 			end
 		end
-
 	p = p.uniq
 	return name, p
 end

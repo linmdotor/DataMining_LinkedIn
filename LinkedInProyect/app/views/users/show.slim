@@ -6,6 +6,11 @@ p
 p
 	b> Url:
 	= @user.url
+
+p
+	b> Company:
+	- if @user.company
+          = @user.company.name
 	
 p
 => link_to 'Edit', edit_user_path(@user)

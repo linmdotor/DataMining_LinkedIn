@@ -4,11 +4,16 @@ table
   tr
     th Name
     th Url
+    th Company
 
   - @users.each do |user|
     tr
       td = user.name.titleize
       td = user.url
+      - if user.company
+        td = user.company.name
+      - else
+        td 
       td = link_to 'Show', user
       td = link_to 'Edit', edit_user_path(user)
       td = link_to 'Destroy', user, 

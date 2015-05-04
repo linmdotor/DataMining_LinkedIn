@@ -21,6 +21,9 @@ class User
   #  end
   #end
 
+#logger.debug "---------------------MY_LOG------------------------"
+#logger.debug @user.name
+
 #This way is better, with the callback before_save
   def capitalize
       self.name.capitalize!

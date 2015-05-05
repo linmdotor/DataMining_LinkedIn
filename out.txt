@@ -1,0 +1,16 @@
+Fredrik Daveus:{"Skills"=>["derivatives", "options", "financial-modeling", "equities", "c++", "quantitative-analytics", "financial-risk", "asset-allocation", "risk-management", "market-risk", "quantitative-finance", "quantitative-analysis", "financial-engineering", "credit-derivatives", "fx-options", "trading", "algorithms", "trading-systems", "risk", "quantitative-investing", "interest-rate-derivatives", "mutual-funds", "solvency-ii", "data-modeling", "programming", "software-design", "matlab", "new-business-development", "start-ups", "insurance"], "LinkedIn URL"=>"https://www.linkedin.com/pub/fredrik-daveus/0/456/4b6?trk=pub-pbmap"}
+
+Niklas Wiman:{"Skills"=>["insurance", "general-insurance", "claim", "business-analysis", "risk-management", "solvency-ii", "reinsurance", "business-intelligence", "commercial-insurance", "property-%26-casualty-insurance", "change-management", "scrum", "data-modeling", "brokers", "business-strategy", "it-management", "business-process"], "LinkedIn URL"=>"https://www.linkedin.com/pub/niklas-wiman/23/a94/721?trk=pub-pbmap"}
+
+Dag Utterborn:{"Skills"=>["microsoft-office", "matlab", "english", "market-research", "solvency-ii", "business-strategy", "financial-risk-management", "market-analysis"], "LinkedIn URL"=>"https://www.linkedin.com/pub/dag-utterborn/93/4a0/554?trk=pub-pbmap"}
+
+Sanna Bryngelsson:{"Skills"=>["swedish", "english", "french", "chinese", "market-analysis", "management", "strategy", "leadership", "marketing", "strategic-planning", "market-research", "entrepreneurship"], "LinkedIn URL"=>"https://www.linkedin.com/pub/sanna-bryngelsson/37/b37/aa1?trk=pub-pbmap"}
+
+William Hedén:{"Skills"=>["matlab", "engineering", "python", "physics", "mathematics", "programming", "risk-management", "statistics", "mathematical-modeling", "research"], "LinkedIn URL"=>"https://www.linkedin.com/pub/william-hed%C3%A9n/86/734/b52?trk=pub-pbmap"}
+
+Johan Danielsson:{"Skills"=>["c++", "matlab", "reuters-3000", "microsoft-excel", "vba", "english", "prime", "python"], "LinkedIn URL"=>"https://www.google.se/url?q=https://www.linkedin.com/pub/johan-danielsson/64/48a/130%3Ftrk%3Dpub-pbmap&sa=U&ei=IdhIVaztHsvxUvKIgagP&ved=0CCsQFjAI&usg=AFQjCNFj6SvV90GWAiMXpOojlKa6_K-x7w"}
+
+Edvard Sjögren:{"Skills"=>["equity-derivatives", "financial-modeling", "equities", "market-risk", "structured-products", "quantitative-finance", "trading-systems", "trading", "derivatives", "financial-markets", "capital-markets", "financial-risk", "options", "fixed-income", "bloomberg", "investment-banking", "fx-options", "credit-derivatives", "django", "python", "web-development"], "LinkedIn URL"=>"https://www.linkedin.com/pub/edvard-sj%C3%B6gren/0/456/524?trk=pub-pbmap"}
+
+Johan Daveus:{"Skills"=>["sales", "marketing", "b2b", "key-account-management", "business-development", "contract-negotiation", "business-strategy", "digital-marketing", "customer-service", "sales-process", "product-management", "marketing-strategy", "project-management", "customer-relations", "new-business-development", "online-advertising", "social", "negotiating-contracts", "mobile-technology", "mobility-management", "enterprise-mobility", "internal-mobility", "consulting"], "LinkedIn URL"=>"https://www.google.se/url?q=https://se.linkedin.com/pub/johan-daveus/21/557/95b&sa=U&ei=IdhIVaztHsvxUvKIgagP&ved=0CC4QFjAJ&usg=AFQjCNHmxfSoQAE7p8_tyzrov1YLgBu86Q"}
+

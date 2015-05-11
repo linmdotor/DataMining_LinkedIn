@@ -28,7 +28,7 @@ country = gets.chomp
 #Call webcrawlerfunc and get the hash of persons of interest (poi)
 poi_tot = webcrawlerfunc(insert_company, country)
 
-#To test,use poi_tot below instead of that one above. 
+#To test,use poi_tot below instead of that one above.
 # It only calls the AlsoViewed-function, to reduce results but still have some significant amount of data.
 #poi_tot = AlsoViewed(insert_company, 'https://se.linkedin.com/pub/william-hed%C3%A9n/86/734/b52')
 
@@ -48,7 +48,9 @@ db = client.db(db_name)
 #Add a collection
 folder_companyname = db.collection("#{insert_company}")
 #Add data to the collection
-folder_companyname.insert(poi_tot)
+poi_tot.each do |poi|
+	folder_companyname.insert(poi)
+end
 
 #Close the MongoLab-server
 client.close()

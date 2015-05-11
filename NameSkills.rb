@@ -1,18 +1,23 @@
-#This function takes as input the "Insert_Company" from webcrawler2.rb and a URL "page" and returns a hash element with Name+Skills
+#This function takes as input the "Insert_Company" from webcrawler.rb and a URL "urlpage" and returns the name with associated skills of a person.
 
 def NameSkills(insert_company, urlpage)
+	#Required gems
 	require 'rubygems'
 	require 'mechanize'
 	require 'nokogiri'
 	require 'open-uri'
 	require 'json'
 
+	#Initialize Mechanize
 	agent = Mechanize.new
+	#These rows may be unnecessary, remove if it proves problems for Windows/Linux
 	agent.user_agent_alias = "Mac Safari"
 	agent.follow_meta_refresh = true
+	#A test link to avoid using all the data. Comment out page below and use this instead when testing.
 	#page = agent.get('https://www.linkedin.com/pub/bianca-partanen-dufour/42/572/aba?trk=pub-pbmap')
 	page = agent.get("#{urlpage}")
 
+	#Go through the person's linkedin page and recover their name+skills if they belong to the company we are searching for.
 	name = ""
 	p = []
 	page.links.each do |link|

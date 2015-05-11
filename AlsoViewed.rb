@@ -2,23 +2,26 @@
 # Linked in profile.
 
 def AlsoViewed(insert_company, urlpage)
+	#Required gems
 	require 'rubygems'
 	require 'mechanize'
 	require 'nokogiri'
 	require 'open-uri'
 	require 'json'
 
+	#Other ruby files that are required
 	require_relative 'NameSkills'
 
 	#Initialize Mechanize
 	agent = Mechanize.new
+	#These rows may be unnecessary, remove if it proves problems for Windows/Linux
 	agent.user_agent_alias = "Mac Safari"
 	agent.follow_meta_refresh = true
 	
 	l = []
+	#A test link to avoid using all the data. Comment out page below and use this instead when testing.
 	#insert_company = "Ericsson"
 	#page = agent.get('https://se.linkedin.com/in/cristiannorlin') # goes to the LinkedIn of a user
-	puts urlpage
 	page = agent.get("#{urlpage}")
 
 	page.links.each do |link|

@@ -30,7 +30,7 @@ class SkillsController < ApplicationController
 
     respond_to do |format|
       if @skill.save
-        format.html { redirect_to @skill, notice: 'Skill was successfully created.' }
+        format.html { redirect_to skills_path, notice: 'Skill was successfully created.' }
         format.json { render :show, status: :created, location: @skill }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class SkillsController < ApplicationController
   def update
     respond_to do |format|
       if @skill.update(skill_params)
-        format.html { redirect_to @skill, notice: 'Skill was successfully updated.' }
+        format.html { redirect_to skills_path, notice: 'Skill was successfully updated.' }
         format.json { render :show, status: :ok, location: @skill }
       else
         format.html { render :edit }
@@ -61,6 +61,46 @@ class SkillsController < ApplicationController
       format.html { redirect_to skills_path, notice: 'Skill was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def simSkills
+
+    company = params[:company]
+
+    comp = Company.where(:name => company.to_s).pluck(:_id)[0].to_s
+    empl = User.where(:company_id => comp).pluck(:name, :skill_ids).to_a
+
+    skills = [];
+    occurences = [];
+
+    (0...(empl.length)).each do |i|
+      (0...(empl[i][1].to_a.length)).each do |j|
+        unless skills.include?(empl[i][1].to_a[j])
+          skills.push(empl[i][1].to_a[j]);
+          occurences.push(1);
+        else
+          occurences[skills.index(empl[i][1].to_a[j])] += 1;
+        end
+      end
+    end
+
+    total = 0;
+    (0...(occurences.length)).each do |i|
+      total += occurences[i]
+    end
+
+    index = Array.new(skills.length);
+    (0...(index.length)).each do |i|
+      index[i] = [skills[i], occurences[i].to_f/total];
+    end
+
+    indexSort = index.sort_by{|s,n| n }.reverse;
+    @top3 = [];
+
+    (0..2).each do |i|
+      @top3 << Skill.where(:_id => indexSort[i][0].to_s)
+    end
+
   end
 
   private

@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  
+
   get '/user/:id/modify_skills/:skill_id', to: 'users#modify_skills', as:'modify_skills'
   get '/user/:id/skills', to: 'users#skills', as:'my_skills'
 
-  resources :companies 
-  resources :skills  
+  resources :companies
+  resources :skills
   resources :users
+
+  get '/skills/top/:company', to: 'skills#simSkills'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

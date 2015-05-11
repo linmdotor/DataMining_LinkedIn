@@ -1,0 +1,16 @@
+/usr/bin/ruby1.9.1 -r ./siteconf20150504-4331-1e9dqa9.rb extconf.rb
+creating Makefile
+
+make  clean
+
+make
+compiling native.c
+native.c: In function ‘Init_native’:
+native.c:622:3: warning: implicit declaration of function ‘gethostname’ [-Wimplicit-function-declaration]
+   gethostname(rb_bson_machine_id, sizeof rb_bson_machine_id);
+   ^
+linking shared-object native.so
+
+make  install
+/usr/bin/install -c -m 0755 native.so .gem.20150504-4331-1l0mr1g
+installing default native libraries

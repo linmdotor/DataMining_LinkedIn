@@ -1,0 +1,9 @@
+h1 Listing top-3 skills
+
+table
+  tr
+    th Name
+
+  - @top3.each do |skill|
+  	tr
+      td = skill[0].name

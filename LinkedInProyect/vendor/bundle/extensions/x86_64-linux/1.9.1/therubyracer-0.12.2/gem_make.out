@@ -1,0 +1,40 @@
+/usr/bin/ruby1.9.1 -r ./siteconf20150504-4331-dv6s1d.rb extconf.rb
+checking for main() in -lpthread... yes
+creating Makefile
+
+make  clean
+
+make
+compiling object.cc
+compiling external.cc
+compiling rr.cc
+compiling date.cc
+compiling gc.cc
+compiling array.cc
+compiling function.cc
+compiling message.cc
+compiling stack.cc
+compiling template.cc
+compiling context.cc
+compiling v8.cc
+compiling constants.cc
+compiling locker.cc
+compiling primitive.cc
+compiling invocation.cc
+compiling accessor.cc
+compiling constraints.cc
+compiling handles.cc
+compiling value.cc
+compiling backref.cc
+compiling trycatch.cc
+compiling heap.cc
+compiling init.cc
+compiling exception.cc
+compiling script.cc
+compiling signature.cc
+compiling string.cc
+linking shared-object v8/init.so
+
+make  install
+/usr/bin/install -c -m 0755 init.so .gem.20150504-4331-xdpycd/v8
+installing default init libraries

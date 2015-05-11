@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to users_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to users_path, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -73,7 +73,7 @@ class UsersController < ApplicationController
     else
       @user.skills.delete(skill)
     end
-    
+
     @user.save
 
     render 'skills'
@@ -85,6 +85,38 @@ class UsersController < ApplicationController
     @my_skills = @user.skills
   end
 
+
+  def simPerson(myName)
+
+    comp = Company.where(:name => company).pluck(:_id)[0].to_s
+    allEmp = User.where(:company_id => comp).pluck(:name, :skill_ids).to_a
+    myUser = User.where(:name => myName).pluck(:skill_ids).to_a
+
+    countSkills = Array.new(allEmp.length) {0};
+
+    myUser.each do |skill|
+      (0...(allEmp.length)).each do |i|
+        if allEmp[i].include?(skill)
+          countSkills[i] += 1;
+        end
+      end
+    end
+
+    (0...(countSkills.length)).each do |i|
+      countSkills[i] /= myUser.length.to_f;
+    end
+
+    max = countSkills.max;
+    bestFit = [];
+    (0...(countSkills.length)).each do |i|
+      if countSkills[i] == max
+        bestFit.push(i)
+      end
+    end
+
+    return bestFit
+
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

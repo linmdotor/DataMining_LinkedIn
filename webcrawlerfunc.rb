@@ -1,0 +1,116 @@
+# coding: utf-8
+
+#Testing building a web crawler
+#If Mechanize proves difficult installing, it's because there's a bug with Command Line Tools for Xcode 6.3
+#Download for 6.2 @ https://developer.apple.com/downloads/index.action#
+
+def webcrawlerfunc(insert_company, country)
+	#Gems that are required
+	require 'rubygems'
+	require 'mechanize'
+	require 'nokogiri'
+	require 'open-uri'
+	require 'json'
+
+	#Other ruby files that are required
+	require_relative 'NameSkills'
+	require_relative 'AlsoViewed'
+
+	#Initialize Mechanize
+	agent = Mechanize.new
+	#These rows may be unnecessary, remove if it proves problems for Windows/Linux
+	agent.user_agent_alias = "Mac Safari"
+	agent.follow_meta_refresh = true
+
+	#Get the suffix so that you search for Google.com/se/es/no depending on the answer in the previous question.
+	if country.casecmp("Sweden") == 0 #0 is true
+		prefix = "se"
+	elsif country.casecmp("Norway") == 0
+		prefix = "no"
+	elsif country.casecmp("Spain") == 0
+		prefix = "es"
+	else	
+		prefix = "com"
+	end
+
+	#Do a Google search of "experience 'Insert_Company' LinkedIn"
+	page = agent.get("https://www.google.com/ncr")
+	page = agent.get("https://www.google.#{prefix}")
+	search_form = page.form('f')
+	search_form.q = "experience #{insert_company} LinkedIn"
+	page = agent.submit(search_form, search_form.buttons[0])
+
+	#Find all links with "Something | LinkedIn" and put them the names in link_name, and the links in link_url.
+	#i is an index telling Mechanize to press the next link on Google named '2', '3' etc.
+	#Since we start on the first page, the first link we want to click is '2'.
+	i = 2
+	link_name = []
+	link_url = []
+
+	begin
+		while i<10 do
+			page.links.each do |link|
+		  		if link.text.include? "| LinkedIn"
+		  			link_name.push(link.text.slice(0..(link.text.index('|')-1)))
+		  			link_url.push("https://www.google.#{prefix}#{link.uri}")
+		  		end
+			end
+		#Scroll through the first 10 Google search pages and continue filling the list L and M.
+			if agent.page.links_with(:text => "#{i}")[0] != nil
+				page = agent.page.links_with(:text => "#{i}")[0].click
+			end
+			i += 1
+		end
+	rescue
+		puts "There are no more Google search pages. Skipping to next part."
+	end
+
+	#Remove duplicates in link_url to save computational time.
+	link_url = link_url.uniq
+
+	#Click each link in link_url, see if the person has experience from 'Insert_Company' and in that case, 
+	#save their skills and URL in a hash poi with their name.
+	poi = Hash.new
+	begin
+		for i in 0..(link_url.length-1)
+			#Tell the user how the progress is coming along.
+			puts "#{(((i+1)*100)/link_url.length.to_f).round(1)}% completed. Please hold on while we crunch the numbers."
+			#Call the function NameSkills.rb with the company name and the URLs in link_url.
+		 	hash_name, hash_skills = NameSkills(insert_company, "#{link_url[i]}")
+		 		if (hash_name.empty? == false && hash_skills.empty? == false)
+		 			#Only save people that have skills visible on LinkedIn to the hash poi.
+		 			poi[hash_name] = {'Skills'=>hash_skills, 'LinkedIn URL' => link_url[i]}
+		 		end
+		end
+	rescue
+		puts "URL: #{link_url[i]} not valid. Skipping to next link."
+	end
+	#Give an update on the progress.
+	puts "Stage 1 completed. Moving to the next stage."
+
+	#For each person you found in link_url, click all the "People Also Viewed" links and rerun the NameSkills() function to see if they are persons we want.
+	#Store this information in poi_also, we will later combine poi_also and poi. This is to avoid error, maybe we could use just one variable instead.
+	poi_also = Hash.new
+	begin 
+		for i in 0..(link_url.length-1)
+			#Tell the user how the progress is coming along.
+			puts "#{(((i+1)*100)/link_url.length.to_f).round(1)}% completed. Please hold on while we crunch the numbers."
+			#Call the AlsoViewed function with the company name and the URLs in M.
+			a = AlsoViewed(insert_company, "#{link_url[i]}")
+			poi_also = poi_also.merge(a)
+		end
+	rescue
+		puts "URL: #{link_url[i]} not valid. Skipping to next link."
+	end
+	#Give an update on the progress.
+	puts "Stage 2 completed. Almost there."
+
+	#Merge the hashes poi and poi_also, so that all results are in one hash. Store this in the new hash poi_tot, which is given the parent key "company name".
+	poi_merge = poi.merge(poi_also)
+	
+	#poi_tot = Hash.new
+	#poi_tot[insert_company] = poi_merge
+	poi_tot = poi_merge
+
+	return poi_tot
+end

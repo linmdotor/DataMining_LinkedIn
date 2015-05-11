@@ -47,8 +47,8 @@ def webcrawlerfunc(insert_company, country)
 	link_name = []
 	link_url = []
 
-	begin
-		while i<10 do
+	while i<10 do
+		begin
 			page.links.each do |link|
 		  		if link.text.include? "| LinkedIn"
 		  			link_name.push(link.text.slice(0..(link.text.index('|')-1)))
@@ -60,9 +60,10 @@ def webcrawlerfunc(insert_company, country)
 				page = agent.page.links_with(:text => "#{i}")[0].click
 			end
 			i += 1
+		rescue
+			puts "There are no more Google search pages. Skipping to next part."
+			i += 1
 		end
-	rescue
-		puts "There are no more Google search pages. Skipping to next part."
 	end
 
 	#Remove duplicates in link_url to save computational time.
@@ -71,37 +72,39 @@ def webcrawlerfunc(insert_company, country)
 	#Click each link in link_url, see if the person has experience from 'Insert_Company' and in that case, 
 	#save their skills and URL in a hash poi with their name.
 	poi = Hash.new
-	begin
-		for i in 0..(link_url.length-1)
+	for i in 0..(link_url.length-1)
+		begin
 			#Tell the user how the progress is coming along.
 			puts "#{(((i+1)*100)/link_url.length.to_f).round(1)}% completed. Please hold on while we crunch the numbers."
 			#Call the function NameSkills.rb with the company name and the URLs in link_url.
 		 	hash_name, hash_skills = NameSkills(insert_company, "#{link_url[i]}")
-		 		if (hash_name.empty? == false && hash_skills.empty? == false)
-		 			#Only save people that have skills visible on LinkedIn to the hash poi.
-		 			poi[hash_name] = {'Skills'=>hash_skills, 'LinkedIn URL' => link_url[i]}
-		 		end
+		 	if (hash_name.empty? == false && hash_skills.empty? == false)
+		 		#Only save people that have skills visible on LinkedIn to the hash poi.
+		 		poi[hash_name] = {'Skills'=>hash_skills, 'LinkedIn URL' => link_url[i]}
+		 	end
+		rescue
+			puts "URL: #{link_url[i]} not valid. Skipping to next link."
 		end
-	rescue
-		puts "URL: #{link_url[i]} not valid. Skipping to next link."
 	end
+
 	#Give an update on the progress.
 	puts "Stage 1 completed. Moving to the next stage."
 
 	#For each person you found in link_url, click all the "People Also Viewed" links and rerun the NameSkills() function to see if they are persons we want.
 	#Store this information in poi_also, we will later combine poi_also and poi. This is to avoid error, maybe we could use just one variable instead.
 	poi_also = Hash.new
-	begin 
-		for i in 0..(link_url.length-1)
+	for i in 0..(link_url.length-1)
+		begin
 			#Tell the user how the progress is coming along.
 			puts "#{(((i+1)*100)/link_url.length.to_f).round(1)}% completed. Please hold on while we crunch the numbers."
 			#Call the AlsoViewed function with the company name and the URLs in M.
 			a = AlsoViewed(insert_company, "#{link_url[i]}")
 			poi_also = poi_also.merge(a)
+		rescue
+			puts "URL: #{link_url[i]} not valid. Skipping to next link."
 		end
-	rescue
-		puts "URL: #{link_url[i]} not valid. Skipping to next link."
 	end
+
 	#Give an update on the progress.
 	puts "Stage 2 completed. Almost there."
 
@@ -111,6 +114,6 @@ def webcrawlerfunc(insert_company, country)
 	#poi_tot = Hash.new
 	#poi_tot[insert_company] = poi_merge
 	poi_tot = poi_merge
-
+	
 	return poi_tot
 end

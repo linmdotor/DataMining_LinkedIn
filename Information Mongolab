@@ -1,0 +1,5 @@
+Mongolab information:
+mongodb://<dbuser>:<dbpassword>@ds039211.mongolab.com:39211/linkedin_project
+
+<dbuser> = lin
+<dbpassword> = 123

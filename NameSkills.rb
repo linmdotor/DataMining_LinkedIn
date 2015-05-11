@@ -20,18 +20,24 @@ def NameSkills(insert_company, urlpage)
 	#Go through the person's linkedin page and recover their name+skills if they belong to the company we are searching for.
 	name = ""
 	p = []
+	boolean = 0
+
 	page.links.each do |link|
-			if link.text.include? "#{insert_company}"
-				name = page.title
-				name = name.slice(0..(name.index('|'))-2)
-				page.links.each do |link|
-					a = link.uri.to_s()
-					if a.include? "topic"
-						p.push(a.slice((a.index('topic'))+6..(a.index('?'))-1))
-					end
-	  			end
-			end
+		if link.text.include? "#{insert_company}"
+			name = page.title
+			name = name.slice(0..(name.index('|'))-2)
+			boolean = 1
 		end
+		a = link.uri.to_s()
+		if a.include? "topic"
+			p.push(a.slice((a.index('topic'))+6..(a.index('?'))-1))
+		end
+	end
+
 	p = p.uniq
+	if boolean == 0
+		name = ""
+		p = []
+	end
 	return name, p
 end

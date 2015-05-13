@@ -33,8 +33,8 @@ def AlsoViewed(insert_company, urlpage)
 	for link in l 
 		if link.include? "pub" #takes only the links which will redirect to a new profile
 			hash_name, hash_skills = NameSkills(insert_company, link) #call the function Nameskills which checks if the desired company is among the experience
-			if (hash_name.empty? == false && hash_skills.empty? == false)
- 				n[hash_name] = {'Skills'=>hash_skills,'LinkedIn URL'=>link} #hashes the skills, the link to a dictionary, the name
+			if ((hash_name.empty? == false) && (hash_skills.empty? == false))
+ 				n[hash_name] = {'Name'=>hash_name,'Skills'=>hash_skills,'LinkedIn URL'=>link} #hashes the skills, the link to a dictionary, the name
  			end
 		end
 	end

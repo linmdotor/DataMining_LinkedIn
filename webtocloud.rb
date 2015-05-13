@@ -40,10 +40,8 @@ puts "Adding your data to the MongoLab database. I can see the finish line now!"
 beginning_time = Time.now
 
 #Use your credentials created specifically for the linkedin_project database.
-dbuser = "pwheden"
-dbpassword = "2.5liter/dagLAB"
-#dbuser = "username"
-#dbpassword = "password"
+dbuser = "username"
+dbpassword = "password"
 
 #Standard URI format: mongodb://[dbuser:dbpassword@]host:port/dbname
 begin

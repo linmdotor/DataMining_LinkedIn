@@ -76,10 +76,10 @@ def webcrawlerfunc(insert_company, country)
 	for i in 0..(link_url.length-1)
 		begin
 			#Call the function NameSkills.rb with the company name and the URLs in link_url.
-		 	hash_name, hash_skills = NameSkills(insert_company, "#{link_url[i]}")
+		 	hash_name, hash_skills, li_company_name = NameSkills(insert_company, "#{link_url[i]}")
 		 	if ((hash_name.empty? == false) && (hash_skills.empty? == false))
 		 		#Only save people that have skills visible on LinkedIn to the hash poi.
-		 		poi[hash_name] = {'Name'=>hash_name,'Skills'=>hash_skills, 'LinkedIn URL' => link_url[i]}
+		 		poi[hash_name] = {'Name'=>hash_name,'Skills'=>hash_skills, 'LinkedIn URL' => link_url[i], 'Company' => li_company_name}
 		 	end
 		 	#Tell the user how the progress is coming along.
 			puts "#{(((i+1)*100)/link_url.length.to_f).round(1)}% completed. Please hold on while we crunch the numbers."

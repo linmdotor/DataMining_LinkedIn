@@ -46,3 +46,14 @@ gem 'execjs'
 
 #Gema para crear formularios más simples (_form.)
 gem 'simple_form'
+
+gem 'mongo'
+gem 'json'
+
+#Gema para el selector de paises
+gem 'country_select'
+
+#Gemas para el webcrawler
+
+gem 'mechanize'
+gem 'nokogiri'

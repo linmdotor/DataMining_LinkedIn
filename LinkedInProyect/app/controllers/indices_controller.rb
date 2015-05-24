@@ -63,7 +63,28 @@ class IndicesController < ApplicationController
 				puts "Adding your data to the MongoLab database. I can see the finish line now!"
 				beginning_time = Time.now
 
+				#some test printing companies and users
+				puts poi_tot
+				poi_tot.keys.each do |key|
+					poi_tot[key]["Company"].each do |company|
+						puts "COMPANY: " 
+						puts company
+					end
+				end
 				
+				#Add data to the database. For every company a person has worked for - create/join a folder with that name and add the person there
+				#poi_tot.keys.each do |key|
+				#	poi_tot[key]["Company"].each do |company|
+						#Add a collection
+				#		company = company.tr("ÀÁÂÃÄÅàáâãäåĀāĂăĄąÇçĆćĈĉĊċČčÐðĎďĐđÈÉÊËèéêëĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħÌÍÎÏìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀŁłÑñŃńŅņŇňŉŊŋ
+				#							ÒÓÔÕÖØòóôõöøŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵÝýÿŶŷŸŹźŻżŽž",
+				#							"AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNn
+				#							OOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
+				#		folder_companyname = db.collection("#{company.tr("/.& ", "_")}")
+						#Add data to the collection
+				#		folder_companyname.insert(poi_tot[key])
+				#	end
+				#end
 
 				end_time = Time.now
 				total_time3 = end_time - beginning_time
@@ -76,33 +97,5 @@ class IndicesController < ApplicationController
 			end
  		end
 
- 		def crawl2
- 			#Call webcrawlerfunc and get the hash of persons of interest (poi)
-			poi_tot, total_time1, total_time2 = webcrawlerfunc(company, country)
-			puts "Adding your data to the MongoLab database. I can see the finish line now!"
-			beginning_time = Time.now
-
-			#Add data to the server. For every company a person has worked for - create/join a folder with that name and add the person there
-			poi_tot.keys.each do |key|
-				poi_tot[key]["Company"].each do |company|
-					#Add a collection
-					company = company.tr("ÀÁÂÃÄÅàáâãäåĀāĂăĄąÇçĆćĈĉĊċČčÐðĎďĐđÈÉÊËèéêëĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħÌÍÎÏìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀŁłÑñŃńŅņŇňŉŊŋ
-										ÒÓÔÕÖØòóôõöøŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵÝýÿŶŷŸŹźŻżŽž",
-										"AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNn
-										OOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
-					folder_companyname = db.collection("#{company.tr("/.& ", "_")}")
-					#Add data to the collection
-					folder_companyname.insert(poi_tot[key])
-				end
-			end
-
-			end_time = Time.now
-			total_time3 = end_time - beginning_time
-			total_time = total_time1 + total_time2 + total_time3
-			puts "Added to your database in #{total_time3} seconds."
-			puts
-			puts "Finished the job in #{total_time} seconds. Go have a look at your results!"
-
-		end
  	end
 end

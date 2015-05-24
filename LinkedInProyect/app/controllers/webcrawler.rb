@@ -4,7 +4,7 @@
 #If Mechanize proves difficult installing, it's because there's a bug with Command Line Tools for Xcode 6.3
 #Download for 6.2 @ https://developer.apple.com/downloads/index.action#
 
-def webcrawlerfunc(insert_company, country)
+def webcrawlerfunc(company, country)
 	#Gems that are required
 	require 'rubygems'
 	require 'mechanize'
@@ -22,22 +22,18 @@ def webcrawlerfunc(insert_company, country)
 	agent.user_agent_alias = "Mac Safari"
 	agent.follow_meta_refresh = true
 
-	#Get the suffix so that you search for Google.com/se/es/no depending on the answer in the previous question.
-	if country.casecmp("Sweden") == 0 #0 is true
-		prefix = "se"
-	elsif country.casecmp("Norway") == 0
-		prefix = "no"
-	elsif country.casecmp("Spain") == 0
-		prefix = "es"
-	else	
+	#Get the suffix so that you search for Google.com/se/es/no..etc depending on the country selected
+	if country.casecmp("") == 0 #0 is true
 		prefix = "com"
+	else
+		prefix = country
 	end
 
 	#Do a Google search of "experience 'Insert_Company' LinkedIn"
 	page = agent.get("https://www.google.com/ncr")
 	page = agent.get("https://www.google.#{prefix}")
 	search_form = page.form('f')
-	search_form.q = "experience #{insert_company} LinkedIn"
+	search_form.q = "experience #{company} LinkedIn"
 	page = agent.submit(search_form, search_form.buttons[0])
 
 	#Find all links with "Something | LinkedIn" and put them the names in link_name, and the links in link_url.
@@ -76,7 +72,7 @@ def webcrawlerfunc(insert_company, country)
 	for i in 0..(link_url.length-1)
 		begin
 			#Call the function NameSkills.rb with the company name and the URLs in link_url.
-		 	hash_name, hash_skills, li_company_name = NameSkills(insert_company, "#{link_url[i]}")
+		 	hash_name, hash_skills, li_company_name = NameSkills(company, "#{link_url[i]}")
 		 	if ((hash_name.empty? == false) && (hash_skills.empty? == false))
 		 		#Only save people that have skills visible on LinkedIn to the hash poi.
 		 		poi[hash_name] = {'Name'=>hash_name,'Skills'=>hash_skills, 'LinkedIn URL' => link_url[i], 'Company' => li_company_name}
@@ -106,7 +102,7 @@ def webcrawlerfunc(insert_company, country)
 	poi.keys.each do |key|
 		begin
 			#Call the AlsoViewed function with the company name and the URLs in poi.
-			a = AlsoViewed(insert_company, poi[key]['LinkedIn URL'])
+			a = AlsoViewed(company, poi[key]['LinkedIn URL'])
 			poi_also = poi_also.merge(a)
 			#Tell the user how the progress is coming along.
 			puts "#{(((i+1)*100)/poi.length.to_f).round(1)}% completed. Please hold on while we crunch the numbers."
@@ -127,7 +123,7 @@ def webcrawlerfunc(insert_company, country)
 	poi_merge = poi.merge(poi_also)
 	
 	#poi_tot = Hash.new
-	#poi_tot[insert_company] = poi_merge
+	#poi_tot[company] = poi_merge
 	poi_tot = poi_merge
 	
 	return poi_tot, total_time1, total_time2

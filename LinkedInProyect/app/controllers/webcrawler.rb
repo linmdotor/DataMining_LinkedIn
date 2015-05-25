@@ -29,6 +29,9 @@ def webcrawlerfunc(company, country)
 		prefix = country
 	end
 
+	puts company
+	puts prefix
+
 	#Do a Google search of "experience 'Insert_Company' LinkedIn"
 	page = agent.get("https://www.google.com/ncr")
 	page = agent.get("https://www.google.#{prefix}")
@@ -126,5 +129,7 @@ def webcrawlerfunc(company, country)
 	#poi_tot[company] = poi_merge
 	poi_tot = poi_merge
 	
+	puts poi_tot
+
 	return poi_tot, total_time1, total_time2
 end

@@ -40,13 +40,13 @@ def NameSkills(insert_company, urlpage)
 			#Save the name of the link - which will be LinkedIn specific instead of the user-types "insert_company"
 			#We will save all of the companies the person has worked for - can be useful later.
 			if link.to_s.empty? == false
-				li_company_name.push(link.to_s())
-				if link.to_s.include? insert_company
+				li_company_name.push(link.to_s().downcase)
+				if link.to_s.downcase.include? insert_company
 					name = page.title
 					#page.title includes some bogus, use a slice function to get just the name
 					name = name.slice(0..(name.index('|'))-2)
 					boolean = 1
-				elsif insert_company.include? link.to_s
+				elsif insert_company.include? link.to_s.downcase
 					name = page.title
 					#page.title includes some bogus, use a slice function to get just the name
 					name = name.slice(0..(name.index('|'))-2)

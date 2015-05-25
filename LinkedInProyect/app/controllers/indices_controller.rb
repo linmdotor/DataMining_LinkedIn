@@ -58,7 +58,7 @@ class IndicesController < ApplicationController
 			#If the search is not enocuntered, run the webcrawler.
 			if run_webcrawler
 				p "VOY A CORRER EL WEBCRAWLER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-				
+
 				poi_tot, total_time1, total_time2 = webcrawlerfunc(company, country)
 				puts "Adding your data to the MongoLab database. I can see the finish line now!"
 				beginning_time = Time.now

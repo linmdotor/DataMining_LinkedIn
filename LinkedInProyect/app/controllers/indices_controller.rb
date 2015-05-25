@@ -65,26 +65,39 @@ class IndicesController < ApplicationController
 
 				#some test printing companies and users
 				puts poi_tot
+				puts "***" * 12
+
 				poi_tot.keys.each do |key|
-					poi_tot[key]["Company"].each do |company|
-						puts "COMPANY: " 
-						puts company
+					puts poi_tot[key]["Name"]
+					puts poi_tot[key]["Skills"].each do |skill|
+						puts skill
 					end
+					puts poi_tot[key]["LinkedIn URL"]
+					poi_tot[key]["Company"]
+					end
+					puts "***" * 12
 				end
-				
-				#Add data to the database. For every company a person has worked for - create/join a folder with that name and add the person there
-				#poi_tot.keys.each do |key|
-				#	poi_tot[key]["Company"].each do |company|
-						#Add a collection
-				#		company = company.tr("ÀÁÂÃÄÅàáâãäåĀāĂăĄąÇçĆćĈĉĊċČčÐðĎďĐđÈÉÊËèéêëĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħÌÍÎÏìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀŁłÑñŃńŅņŇňŉŊŋ
-				#							ÒÓÔÕÖØòóôõöøŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵÝýÿŶŷŸŹźŻżŽž",
-				#							"AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNn
-				#							OOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
-				#		folder_companyname = db.collection("#{company.tr("/.& ", "_")}")
-						#Add data to the collection
-				#		folder_companyname.insert(poi_tot[key])
-				#	end
-				#end
+
+				#Add data to the database. THIS MUST BE FILLED
+				poi_tot.keys.each do |key|
+					#Create the user if Doesn't exist
+					puts poi_tot[key]["Name"]
+					puts poi_tot[key]["LinkedIn URL"]
+
+					#Create the company if Doesn't exist
+					poi_tot[key]["Company"]
+
+					#Create the skills if Doesn't exist
+					puts poi_tot[key]["Skills"].each do |skill|
+						puts skill
+					end
+
+					#Add the company to the user
+
+
+
+				end
+
 
 				end_time = Time.now
 				total_time3 = end_time - beginning_time

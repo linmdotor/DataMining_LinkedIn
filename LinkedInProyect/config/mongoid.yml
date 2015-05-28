@@ -4,17 +4,17 @@ development:
     # Defines the default session. (required)
     default:
         
-      uri: 'mongodb://USER:PASSWORD@ds039211.mongolab.com:39211/linkedin_project'
+      #uri: 'mongodb://USER:PASSWORD@ds039211.mongolab.com:39211/linkedin_project'
       
 
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      #database: linkedin_app_development
+      database: linkedin_app_development
       #database: datamining_linkedin_db
       # Provides the hosts the default session can connect to. Must be an array
       # of host:port pairs. (required)
-      #hosts:
-        #- localhost:27017
+      hosts:
+        - localhost:27017
         #- localhost:39058
       options:
         # Change the default write concern. (default = { w: 1 })
@@ -35,6 +35,7 @@ development:
         # retry_interval: 0.25
   # Configure Mongoid specific options. (optional)
   options:
+    raise_not_found_error: false #this is no return nil in the query Company.find_by name: company (strictly 4 spaces before not 6)
     # Includes the root model name in json serialization. (default: false)
     # include_root_in_json: false
 

@@ -128,8 +128,6 @@ def webcrawlerfunc(company, country)
 	#poi_tot = Hash.new
 	#poi_tot[company] = poi_merge
 	poi_tot = poi_merge
-	
-	puts poi_tot
 
 	return poi_tot, total_time1, total_time2
 end

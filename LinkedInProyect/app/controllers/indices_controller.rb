@@ -74,7 +74,6 @@ class IndicesController < ApplicationController
 					end
 					puts poi_tot[key]["LinkedIn URL"]
 					poi_tot[key]["Company"]
-					end
 					puts "***" * 12
 				end
 
@@ -91,11 +90,7 @@ class IndicesController < ApplicationController
 					puts poi_tot[key]["Skills"].each do |skill|
 						puts skill
 					end
-
 					#Add the company to the user
-
-
-
 				end
 
 
@@ -109,6 +104,5 @@ class IndicesController < ApplicationController
 				p "NO SE EJECUTA EL WEBCRAWLER---------------------------"
 			end
  		end
-
  	end
 end

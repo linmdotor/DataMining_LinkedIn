@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MongoApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+	<head>
+	<title><%= full_title(yield(:title)) %></title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	  <!--[if lt IE 9]>
+	  	<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+	    </script>
+	  <![endif]-->
+	</head>
+	<body>
+		<header class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<%= link_to "Mining LinkedIn", "#", id: "logo" %> 
+				<nav>
+					<ul class="nav navbar-nav navbar-right">
+						<li><%= link_to "Home", "#", id: "home" %></li>
+						<li><%= link_to "About", "#", id: "about" %></li>
+						<li><%= link_to "Crew", "#", id: "crew" %></li>
+						<li><%= link_to "Help", "#", id: "help" %></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<div class="container">
+			<%= yield %>
+		</div>
+	</body>
 </html>

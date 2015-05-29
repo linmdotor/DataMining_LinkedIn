@@ -30,8 +30,8 @@ puts
 
 #Time to connect to the MongoLab-server
 #Use your credentials created specifically for the linkedin_project database (MongoLab).
-dbuser = "username"
-dbpassword = "password"
+dbuser = "pwheden"
+dbpassword = "2.5liter/dagLAB"
 
 #Time to connect to the MongoLab-server
 #Standard URI format: mongodb://[dbuser:dbpassword@]host:port/dbname
@@ -72,17 +72,23 @@ if boolean == 0
 	beginning_time = Time.now
 
 	#Add data to the server. For every company a person has worked for - create/join a folder with that name and add the person there
-	poi_tot.keys.each do |key|
-		poi_tot[key]["Company"].each do |company|
-			#Add a collection
-			company = company.tr("ÀÁÂÃÄÅàáâãäåĀāĂăĄąÇçĆćĈĉĊċČčÐðĎďĐđÈÉÊËèéêëĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħÌÍÎÏìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀŁłÑñŃńŅņŇňŉŊŋ
-								ÒÓÔÕÖØòóôõöøŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵÝýÿŶŷŸŹźŻżŽž",
-								"AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNn
-								OOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
-			folder_companyname = db.collection("#{company.tr("/.& ", "_")}")
-			#Add data to the collection
-			folder_companyname.insert(poi_tot[key])
+	begin
+		poi_tot.keys.each do |key|
+			poi_tot[key]["Company"].each do |company|
+				#Add a collection
+				company = company.tr("ÀÁÂÃÄÅàáâãäåĀāĂăĄąÇçĆćĈĉĊċČčÐðĎďĐđÈÉÊËèéêëĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħÌÍÎÏìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀŁłÑñŃńŅņŇňŉŊŋ
+									ÒÓÔÕÖØòóôõöøŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵÝýÿŶŷŸŹźŻżŽž",
+									"AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNn
+									OOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
+				folder_companyname = db.collection("#{company.tr("/.& ", "_")}")
+				#Add data to the collection
+				folder_companyname.insert(poi_tot[key])
+			end
 		end
+	rescue
+		puts
+		puts "Ops, something went wrong with one of the profiles. I bet he or she is not that important anyway! Moving on."
+		puts
 	end
 
 	end_time = Time.now

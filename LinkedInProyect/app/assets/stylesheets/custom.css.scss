@@ -1,0 +1,84 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* universal design */
+
+body {
+  padding-top: 60px;
+  background-image: url("book.jpg");
+  background-size: cover;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+  	margin-bottom: 30px;
+  }
+}
+
+
+/* specific design */
+
+h1 {
+	font-size: 2em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+	text-align: center;
+	line-height: 1;
+  font-family: "League Gothic"
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 3.0em;
+  color: #000000;
+  text-transform: none;
+  letter-spacing: -1px;
+  padding-top: 15px;
+  font-weight: bold;
+  font-family: "League Gothic";
+  &:hover{
+    color: #000000;
+    background: none;
+    text-decoration: none;
+  }
+}
+
+#home, #crew, #about, #help{
+  color: #000000;
+  font-weight: bold;
+  font-family: "League Gothic";
+  font-size: 1.5em;
+  &:hover {
+    color: #000000;
+  }
+}
+
+/* The bar on the top */
+.navbar{
+  background-color: #FFFFFF; 
+  opacity: 0.5; 
+  filter: alpha(opacity=50);
+}
+
+.jumbotron{
+  background-color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.5); 
+  position: absolute;
+  left: 25%;
+  top: 25%;
+  bottom: auto;
+  right: auto;
+  font-family: "League Gothic";
+  font-size: 1.8em;
+  line-height: 1;
+}

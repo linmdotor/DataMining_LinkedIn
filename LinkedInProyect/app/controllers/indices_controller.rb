@@ -63,8 +63,8 @@ class IndicesController < ApplicationController
 				puts "Adding your data to the MongoLab database. I can see the finish line now!"
 				beginning_time = Time.now
 
-				#some test printing companies and users
 				puts poi_tot
+<<<<<<< HEAD
 				puts "***" * 12
 
 				poi_tot.keys.each do |key|
@@ -76,21 +76,52 @@ class IndicesController < ApplicationController
 					poi_tot[key]["Company"]
 					puts "***" * 12
 				end
+=======
+>>>>>>> origin/master
 
 				#Add data to the database. THIS MUST BE FILLED
 				poi_tot.keys.each do |key|
 					#Create the user if Doesn't exist
-					puts poi_tot[key]["Name"]
-					puts poi_tot[key]["LinkedIn URL"]
+					user_name = poi_tot[key]["Name"]
+					user_url = poi_tot[key]["LinkedIn URL"]
+
+					db_user = User.find_by name: user_name
+					if(!db_user.present?) #create the entity
+						db_user = User.new(:name => user_name, :url => user_url)
+						db_user.save
+					end
 
 					#Create the company if Doesn't exist
-					poi_tot[key]["Company"]
-
-					#Create the skills if Doesn't exist
-					puts poi_tot[key]["Skills"].each do |skill|
-						puts skill
+					if(!db_company.present?) #create the entity
+						db_company = Company.new(:name => company)
+						db_company.save
 					end
+<<<<<<< HEAD
 					#Add the company to the user
+=======
+
+					#Create the skills if Doesn't exist, and add the skills to the user
+					my_skills = db_user.skills
+					poi_tot[key]["Skills"].each do |skill|
+						db_skill = Skill.find_by name: skill
+						if(!db_skill.present?) #create the entity
+							db_skill = Skill.new(:name => skill)
+							db_skill.save
+						end
+
+						unless my_skills.include? db_skill
+					      db_user.skills << db_skill
+					      db_user.save
+					    end
+					end
+
+					puts "***" * 12
+
+					#Add the company to the user
+					db_user.company = db_company
+				    db_user.save
+
+>>>>>>> origin/master
 				end
 
 

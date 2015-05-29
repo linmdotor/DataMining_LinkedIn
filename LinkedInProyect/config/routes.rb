@@ -2,6 +2,11 @@ Rails.application.routes.draw do
 
   root 'indices#index'
 
+  get 'home'    => 'static_pages#home'
+  get 'about'   => 'static_pages#about'
+  get 'crew'    => 'static_pages#crew'
+  get 'help'    => 'static_pages#help'
+
   get '/user/:id/modify_skills/:skill_id', to: 'users#modify_skills', as:'modify_skills'
   get '/user/:id/skills', to: 'users#skills', as:'my_skills'
 
@@ -9,6 +14,7 @@ Rails.application.routes.draw do
   resources :skills
   resources :users
   resources :indices
+  resources :about
 
   get '/skills/top/:company', to: 'skills#simSkills'
 

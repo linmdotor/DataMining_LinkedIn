@@ -64,20 +64,6 @@ class IndicesController < ApplicationController
 				beginning_time = Time.now
 
 				puts poi_tot
-<<<<<<< HEAD
-				puts "***" * 12
-
-				poi_tot.keys.each do |key|
-					puts poi_tot[key]["Name"]
-					puts poi_tot[key]["Skills"].each do |skill|
-						puts skill
-					end
-					puts poi_tot[key]["LinkedIn URL"]
-					poi_tot[key]["Company"]
-					puts "***" * 12
-				end
-=======
->>>>>>> origin/master
 
 				#Add data to the database. THIS MUST BE FILLED
 				poi_tot.keys.each do |key|
@@ -96,9 +82,6 @@ class IndicesController < ApplicationController
 						db_company = Company.new(:name => company)
 						db_company.save
 					end
-<<<<<<< HEAD
-					#Add the company to the user
-=======
 
 					#Create the skills if Doesn't exist, and add the skills to the user
 					my_skills = db_user.skills
@@ -120,8 +103,6 @@ class IndicesController < ApplicationController
 					#Add the company to the user
 					db_user.company = db_company
 				    db_user.save
-
->>>>>>> origin/master
 				end
 
 

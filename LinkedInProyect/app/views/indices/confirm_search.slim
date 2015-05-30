@@ -1,0 +1,15 @@
+
+<div class="center jumbotron", id:"aboutpage">
+
+	table
+		tr
+			td colspan="2" It seems the company you are searching for is already in the database. Do you still want to search for data with a crawler?
+	
+		tr
+			- if @country.present?
+				td = link_to 'Yes, repeat the search', accept_crawl_path(@company, @country)
+			- else
+				td = link_to 'Yes, repeat the search', accept_crawl_path(@company, "com")
+
+			td = link_to 'No, continue with the stored data', sim_skills_path(@company)
+</div>

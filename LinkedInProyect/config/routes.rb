@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   resources :similarities
   resources :about
 
-  get '/skills/top/:company', to: 'skills#simSkills'
+  get '/skills/top/:company', to: 'skills#simSkills', as:'sim_skills'
+
+  get 'confirm_search'    => 'indices#confirm_search'
+  get '/accept_crawl/:company/:country', to: 'indices#accept_crawl', as:'accept_crawl'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

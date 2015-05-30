@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :skills
   resources :users
   resources :indices
+  resources :similarities
   resources :about
 
   get '/skills/top/:company', to: 'skills#simSkills'

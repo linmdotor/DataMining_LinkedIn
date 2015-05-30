@@ -1,0 +1,13 @@
+/usr/bin/ruby1.9.1 -r ./siteconf20150530-4936-fh8v29.rb extconf.rb
+checking for main() in -lstdc++... yes
+creating Makefile
+
+make  clean
+
+make
+compiling unf.cc
+linking shared-object unf_ext.so
+
+make  install
+/usr/bin/install -c -m 0755 unf_ext.so .gem.20150530-4936-2uyxke
+installing default unf_ext libraries

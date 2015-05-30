@@ -1,0 +1,495 @@
+---
+AD:
+  name: Adygeya, Respublika
+  names:
+  - Adygei Republic
+  - Adygeja
+  translations: Республика Адыгея
+AL:
+  name: Altay, Respublika
+  names:
+  - Altaj
+  - Altay
+  - Gorno-Altaj
+  translations: Республика Алтай
+ALT:
+  name: Altayskiy kray
+  names:
+  - Altai Kray
+  - Altajskij Kray
+  - Altajskiy Kraj
+  - Altaj
+  translations: Алтайский край
+AMU:
+  name: Amurskaya oblast'
+  names:
+  - Amurskaja Oblast
+  translations: Амурская область
+ARK:
+  name: Arkhangel'skaya oblast'
+  names:
+  - Arhangelskaja Oblast
+  - Arhangelsk
+  translations: Архангельская область
+AST:
+  name: Astrakhanskaya oblast'
+  names:
+  - Astrahanska Oblast
+  - Astrahan
+  translations: Астраханская область
+BA:
+  name: Bashkortostan, Respublika
+  names:
+  - Baškortostan
+  translations: Республика Башкортостан
+BEL:
+  name: Belgorodskaya oblast'
+  names:
+  - Belgorodskaja Oblast
+  translations: Белгородская область
+BRY:
+  name: Bryanskaya oblast'
+  names:
+  - Brjanskaja Oblast
+  - Brjansk
+  translations: Брянская область
+BU:
+  name: Buryatiya, Respublika
+  names:
+  - Buryat Republic
+  - Burjatija
+  translations: Республика Бурятия
+CE:
+  name: Chechenskaya Respublika
+  names:
+  - Chechen
+  - Chechenia
+  - Ichkeria
+  - Ičkeria
+  - Čečens
+  - Čečenskaja Respublika
+  - Čečenija
+  translations: Чеченская Республика
+CHE:
+  name: Chelyabinskaya oblast'
+  names:
+  - Cheljabinsk
+  - Čeljabinskaja Oblast
+  - Čeljabinsk
+  translations: Челябинская область
+CHU:
+  name: Chukotskiy avtonomnyy okrug
+  names:
+  - Chuckchi
+  - Čukotskij Avtonomnyj Okrug
+  - Čukči
+  - Čukotka
+  translations: Чукотский автономный округ
+CU:
+  name: Chuvashskaya Respublika
+  names:
+  - Chuvash Republic
+  - Chuvashskaya Respublika
+  - Čuvašskaja Respublika
+  - Čuvašija
+  translations: Чувашская Республика
+DA:
+  name: Dagestan, Respublika
+  names: Dagestan, Respublika
+  translations: Республика Дагестан
+IN:
+  name: Ingushskaya Respublika [Respublika Ingushetiya]
+  names:
+  - Ingushetija
+  - Ingušetija
+  translations: Республика Ингушетия
+IRK:
+  name: Irkutskaya oblast'
+  names:
+  - Irkutskaja Oblast
+  translations: Иркутская область
+IVA:
+  name: Ivanovskaya oblast'
+  names:
+  - Ivanovskaja Oblast
+  translations: Ивановская область
+KAM:
+  name: Kamchatskaya oblast'
+  names:
+  - Kamchatskaya Oblast
+  - Kamčatskaja Oblast
+  - Kamčatka
+KB:
+  name: Kabardino-Balkarskaya Respublika
+  names:
+  - Kabardino-Balkarian Republic
+  - Kabardino-Balkarskaja Respublika
+  - Kabardino-Balkarija
+  translations: Кабардино-Балкарская республика
+KC:
+  name: Karachayevo-Cherkesskaya Respublika
+  names:
+  - Karachay-Cherkessian
+  - Karačajevo-Čerkesskaja Respublika
+  - Karačaj-Čerkessija
+  translations: Карачаево-Черкесская республика
+KDA:
+  name: Krasnodarskiy kray
+  names:
+  - Krasnodarskij Kraj
+  translations: Красноярский край
+KEM:
+  name: Kemerovskaya oblast'
+  names:
+  - Kemerovskaja Oblast
+  translations: Кемеровская область
+KGD:
+  name: Kaliningradskaya oblast'
+  names:
+  - Kaliningradskaja Oblast
+  translations: Калининградская область
+KGN:
+  name: Kurganskaya oblast'
+  names:
+  - Kurganskaja Oblast
+  translations: Курганская область
+KHA:
+  name: Khabarovskiy kray
+  names:
+  - Habarovskij Kray
+  - Habarovsk
+  translations: Хабаровский край
+KHM:
+  name: Khanty-Mansiyskiy avtonomnyy okrug [Yugra]
+  names:
+  - Hanty-Mansijskij Avtonomnyj Okrug
+  - Hanty-Mansija
+  translations: Ханты-Мансийский автономный округ - Югра
+KIR:
+  name: Kirovskaya oblast'
+  names:
+  - Kirovskaja Oblast
+  translations: Кировская область
+KK:
+  name: Khakasiya, Respublika
+  names:
+  - Khakass Republic
+  - Hakasija
+  translations: Республика Хакасия
+KL:
+  name: Kalmykiya, Respublika
+  names:
+  - Halmg-Tangč
+  - Kalmyk Republic
+  - Khalmg-Tangch
+  - Kalmykija
+  translations: Республика Калмыкия
+KLU:
+  name: Kaluzhskaya oblast'
+  names:
+  - Kaluzhskaya Oblast
+  - Kalužskaja Oblast
+  translations: Калужская область
+KO:
+  name: Komi, Respublika
+  names: Komi, Respublika
+  translations: Республика Коми
+KOS:
+  name: Kostromskaya oblast'
+  names:
+  - Kostromskaja Oblast
+  translations: Костромская область
+KR:
+  name: Kareliya, Respublika
+  names:
+  - Karelian Republic
+  - Karelija
+  translations: Республика Карелия
+KRS:
+  name: Kurskaya oblast'
+  names:
+  - Kurskaja Oblast
+  translations: Курская область
+KYA:
+  name: Krasnoyarskiy kray
+  names:
+  - Krasnojarsk
+  - Krasnojarskij Kraj
+  - Krasnojarsk
+  translations: Красноярский край
+LEN:
+  name: Leningradskaya oblast'
+  names:
+  - Leningradskaja Oblast
+  translations: Ленинградская область
+LIP:
+  name: Lipetskaya oblast'
+  names:
+  - Lipeckaja Oblast
+  - Lipeck
+  translations: Липецкая область
+MAG:
+  name: Magadanskaya oblast'
+  names:
+  - Magadanskaja Oblast
+  translations: Магаданская область
+ME:
+  name: Mariy El, Respublika
+  names:
+  - Mariy El
+  - Marij El
+  translations: Республика Марий Эл
+MO:
+  name: Mordoviya, Respublika
+  names:
+  - Mordovian Republic
+  - Mordovija
+  translations: Республика Мордовия
+MOS:
+  name: Moskovskaya oblast'
+  names:
+  - Moskva
+  - Moskau
+  - Moscou
+  - Moscú
+  translations: Московская область
+MOW:
+  name: Moskva
+  names:
+  - Moskovskaja Oblast
+  translations: Москва
+MUR:
+  name: Murmanskaya oblast'
+  names:
+  - Murmanskaja Oblast
+  translations: Мурманская область
+NEN:
+  name: Nenetskiy avtonomnyy okrug
+  names:
+  - Nenetskij Avtonomnyj Okrug
+  translations: Ненецкий автономный округ
+NGR:
+  name: Novgorodskaya oblast'
+  names:
+  - Novgorodskaja Oblast
+  translations: Новгородская область
+NIZ:
+  name: Nizhegorodskaya oblast'
+  names:
+  - Gorki
+  - Gorkij
+  - Gorky
+  - Nizhegorodskaya Oblast
+  - Nižegorodskaja Oblast
+  - Nižnij Novgorod
+  translations: Нижегородская область
+NVS:
+  name: Novosibirskaya oblast'
+  names:
+  - Novosibirskaja Oblast
+  translations: Новосибирская область
+OMS:
+  name: Omskaya oblast'
+  names:
+  - Omskaja Oblast
+  translations: Омская область
+ORE:
+  name: Orenburgskaya oblast'
+  names:
+  - Orenburgskaja Oblast
+  translations: Оренбургская область
+ORL:
+  name: Orlovskaya oblast'
+  names:
+  - Orlovskaja Oblast
+  - Orjol
+  translations: Орловская область
+PER:
+  name: Perm
+  names:
+  - Permskaja Oblast
+PNZ:
+  name: Penzenskaya oblast'
+  names:
+  - Penzenskaja Oblast
+  translations: Пензенская область
+PRI:
+  name: Primorskiy kray
+  names:
+  - Primorskij
+  - Primorskij Kraj
+  - Primorje
+  translations: Приморский край
+PSK:
+  name: Pskovskaya oblast'
+  names:
+  - Pihkva
+  - Pleskau
+  - Pskovskaja Oblast
+  translations: Псковская область
+ROS:
+  name: Rostovskaya oblast'
+  names:
+  - Rostovskaja Oblast
+  translations: Ростовская область
+RYA:
+  name: Ryazanskaya oblast'
+  names:
+  - Rjazanskaja Oblast
+  - Rjazan
+  translations: Рязанская область
+SA:
+  name: Sakha, Respublika [Yakutiya]
+  names:
+  - Jakutija
+  - Sakha
+  - Yakutsk-Sakha
+  - Saha
+  translations: Республика Саха (Якутия)
+SAK:
+  name: Sakhalinskaya oblast'
+  names:
+  - Sahalinskaya Oblast
+  - Sahalin
+  translations: Сахалинская область
+SAM:
+  name: Samarskaya oblast'
+  names:
+  - Samarskaja Oblast
+  translations: Самарская область
+SAR:
+  name: Saratovskaya oblast'
+  names:
+  - Saratovskaja Oblast
+  translations: Саратовская область
+SE:
+  name: Severnaya Osetiya, Respublika [Alaniya] [Respublika Severnaya Osetiya-Alaniya]
+  names:
+  - Alania
+  - North Ossetian Republic
+  - Osetija
+  - Alanija
+  translations: Республика Северная Осетия-Алания
+SMO:
+  name: Smolenskaya oblast'
+  names:
+  - Smolenskaja Oblast
+  translations: Смоленская область
+SPE:
+  name: Sankt-Peterburg
+  names:
+  - San Pietroburgo
+  - Sankt-Peterburg
+  - Sankt Petersburg
+  - Saint-Pétersbourg
+  - San Petersburgo
+  translations: Санкт-Петербург
+STA:
+  name: Stavropol'skiy kray
+  names:
+  - Stavropolskij Kraj
+  translations: Ставропольский край
+SVE:
+  name: Sverdlovskaya oblast'
+  names:
+  - Sverdlovskaja Oblast
+  translations: Свердловская область
+TA:
+  name: Tatarstan, Respublika
+  names: Tatarstan, Respublika
+  translations: Республика Татарстан
+TAM:
+  name: Tambovskaya oblast'
+  names:
+  - Tambovskaja Oblast
+  translations: Тамбовская область
+TOM:
+  name: Tomskaya oblast'
+  names:
+  - Tomskaja Oblast
+  translations: Томская область
+TUL:
+  name: Tul'skaya oblast'
+  names:
+  - Tulskaja Oblast
+  translations: Тульская область
+TVE:
+  name: Tverskaya oblast'
+  names:
+  - Tverskaja Oblast
+  translations: Тверская область
+TY:
+  name: Tyva, Respublika [Tuva]
+  names:
+  - Tuva
+  translations: Республика Тыва
+TYU:
+  name: Tyumenskaya oblast'
+  names:
+  - Tjumenskaja Oblast
+  - Tumen
+  - Tjumen
+  translations: Тюменская область
+UD:
+  name: Udmurtskaya Respublika
+  names:
+  - Udmurt Republic
+  - Udmurtskaya Respublika
+  - Udmurtija
+  translations: Удмуртская Республика
+ULY:
+  name: Ul'yanovskaya oblast'
+  names:
+  - Uljanovskaja Oblast
+  - Uljanovsk
+  translations: Ульяновская область
+VGG:
+  name: Volgogradskaya oblast'
+  names:
+  - Volgogradskaja Oblast
+  translations: Волгоградская область
+VLA:
+  name: Vladimirskaya oblast'
+  names:
+  - Vladimirskaja Oblast
+  translations: Владимирская область
+VLG:
+  name: Vologodskaya oblast'
+  names:
+  - Vologodskaja Oblast
+  translations: Вологодская область
+VOR:
+  name: Voronezhskaya oblast'
+  names:
+  - Voronežskaja Oblast
+  - Voronež
+  translations: Воронежская область
+YAN:
+  name: Yamalo-Nenetskiy avtonomnyy okrug
+  names:
+  - Jamalija
+  - Jamalo-Nenetskij Avtonomnyj Okrug
+  - Jamalo-Nenets
+  translations: Ямало-Ненецкий автономный округ
+YAR:
+  name: Yaroslavskaya oblast'
+  names:
+  - Jaroslavskaja Oblast
+  - Jaroslavl
+  translations: Ярославская область
+YEV:
+  name: Yevreyskaya avtonomnaya oblast'
+  names:
+  - Jevrejskaja Oblast
+  - Jevrejskaja Respublika
+  - Jewish Autonomous Oblast
+  - Yevreyskaya Oblast
+  - Jevrej
+  translations: Еврейская автономная область
+ZAB:
+  name: Zabaykal'skij kray
+  names:
+  - Zabajkal'skij kraj
+  - Zabajkal'skij
+  - Zabaykal'skij kray
+  translations: Забайкальский край

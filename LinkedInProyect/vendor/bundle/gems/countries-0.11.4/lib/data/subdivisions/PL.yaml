@@ -1,0 +1,81 @@
+---
+DS:
+  name: Dolnośląskie
+  names:
+  - dolnośląskie
+  - Dolnośląskie
+KP:
+  name: Kujawsko-pomorskie
+  names:
+  - kujawsko-pomorskie
+  - Kujawsko-pomorskie
+LU:
+  name: Lubelskie
+  names:
+  - lubelskie
+  - Lubelskie
+LB:
+  name: Lubuskie
+  names:
+  - lubuskie
+  - Lubuskie
+LD:
+  name: Łódzkie
+  names:
+  - łódzkie
+  - Łódzkie
+MA:
+  name: Małopolskie
+  names:
+  - małopolskie
+  - Małopolskie
+MZ:
+  name: Mazowieckie
+  names:
+  - mazowieckie
+  - Mazowieckie
+OP:
+  name: Opolskie
+  names:
+  - opolskie
+  - Opolskie
+PK:
+  name: Podkarpackie
+  names:
+  - podkarpackie
+  - Podkarpackie
+PD:
+  name: Podlaskie
+  names:
+  - podlaskie
+  - Podlaskie
+PM:
+  name: Pomorskie
+  names:
+  - pomorskie
+  - Pomorskie
+SL:
+  name: Śląskie
+  names:
+  - śląskie
+  - Śląskie
+SK:
+  name: Świętokrzyskie
+  names:
+  - świętokrzyskie
+  - Świętokrzyskie
+WN:
+  name: Warmińsko-mazurskie
+  names:
+  - warmińsko-mazurskie
+  - Warmińsko-mazurskie
+WP:
+  name: Wielkopolskie
+  names:
+  - wielkopolskie
+  - Wielkopolskie
+ZP:
+  name: Zachodniopomorskie
+  names:
+  - zachodniopomorskie
+  - Zachodniopomorskie

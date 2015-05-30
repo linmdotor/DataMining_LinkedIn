@@ -1,0 +1,21 @@
+table
+  tr
+    th Top 3 skills
+
+  - @top3.each do |skill|
+    tr
+      td = skill[0].name
+
+
+table
+  tr
+    th Best fit within company
+
+  - @theBest.each do |user|
+    tr
+      td = user.name
+  tr
+  	th Skills
+  - @theSkills.each do |skill|
+    tr
+      td = skill[0].name

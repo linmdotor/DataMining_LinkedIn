@@ -1,0 +1,9 @@
+= simple_form_for(@similarity) do |f|
+
+  | What company are you interested in?
+  = f.input :company
+
+  | What is your name?
+  = f.input :name
+
+  = f.button :submit, "Find similarities within company"

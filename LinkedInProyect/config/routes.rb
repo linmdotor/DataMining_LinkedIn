@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'home'    => 'static_pages#home'
   get 'about'   => 'static_pages#about'
   get 'crew'    => 'static_pages#crew'
-  get 'help'    => 'static_pages#help'
+  get 'contact'    => 'static_pages#help'
 
   get '/user/:id/modify_skills/:skill_id', to: 'users#modify_skills', as:'modify_skills'
   get '/user/:id/skills', to: 'users#skills', as:'my_skills'

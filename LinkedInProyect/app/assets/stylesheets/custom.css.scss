@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+@import "font-awesome-sprockets";
+@import "font-awesome";
 /* universal design */
 
 body {
@@ -36,6 +37,15 @@ h1 {
   font-family: "League Gothic"
 }
 
+/* For the crew page */
+h4 {
+  font-size: 1em;
+  margin-bottom: 30px;
+  line-height: 1;
+  font-family: "League Gothic";
+  text-align: center;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -61,6 +71,15 @@ h1 {
   &:hover {
     color: #000000;
   }
+  &:link{
+    color: #000000;
+  }
+  &:active{
+    color: #000000;
+  }
+  &:visited{
+    color: #000000;
+  }
 }
 
 /* The bar on the top */
@@ -72,21 +91,53 @@ h1 {
 
 .jumbotron{
   background-color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.5); 
-  position: absolute;
-  left: 25%;
-  top: 25%;
-  bottom: auto;
-  right: auto;
+  background: rgba(255, 255, 255, 0.5);
   font-family: "League Gothic";
   font-size: 1.8em;
   line-height: 1;
+  margin-top: 5%;
 }
 
-#aboutpage{
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  bottom: 50%;
-  right: 50%;
+.img-rounded{
+  text-align: center;
+}
+
+.home{
+  background-image: url("book.jpg");
+  background-size: cover;
+}
+.about{
+  background-image: url("bus.jpg");
+  background-size: cover;
+}
+.crew{
+  background-image: url("school.jpg");
+  background-size: cover;
+}
+.contact{
+  background-image: url("coffe.jpg");
+  background-size: cover;
+}
+
+.glyphicon{
+  margin-bottom: 15px;
+}
+
+.linkedin, .github, .user, .email{
+  color: #303030;
+  font-family: "League Gothic";
+  &:hover{
+    color: #303030;
+    background: none;
+    text-decoration: none;
+  }
+  &:link{
+    color: #303030;
+  }
+  &:active{
+    color: #303030;
+  }
+  &:visited{
+    color: #303030;
+  }
 }

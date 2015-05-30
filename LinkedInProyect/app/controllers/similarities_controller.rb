@@ -13,7 +13,15 @@ class SimilaritiesController < ApplicationController
     render :output
   end
 
-  def simSkills company
+  def output
+    company = params[:company]
+    username = params[:name]
+
+    sim_skills company
+    sim_empl company, username
+  end
+
+  def sim_skills company
 
     comp = Company.where(:name => company.to_s).pluck(:_id)[0].to_s
     empl = User.where(:company_id => comp).pluck(:name, :skill_ids).to_a
@@ -52,11 +60,11 @@ class SimilaritiesController < ApplicationController
   end
 
 
-  def simEmpl company, username
+  def sim_empl company, username
 
     comp = Company.where(:name => company).pluck(:_id)[0].to_s
     allEmp = User.where(:company_id => comp).pluck(:name, :skill_ids).to_a
-    myUser = User.where(:name => username).pluck(:skill_ids).to_a
+    myUser = User.where(:name => username.downcase).pluck(:skill_ids).to_a
 
     countSkills = Array.new(allEmp.length) {0};
 

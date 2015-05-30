@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   get '/skills/top/:company', to: 'skills#simSkills', as:'sim_skills'
 
+  get '/similarities/:company/:name', to: 'similarities#output', as:'get_match'
+
   get 'confirm_search'    => 'indices#confirm_search'
   get '/accept_crawl/:company/:country', to: 'indices#accept_crawl', as:'accept_crawl'
 

@@ -46,7 +46,7 @@ class IndicesController < ApplicationController
  			#This is to debug the app, it's displayed on the console
 	 		p "**" * 70
 	 		p company
-	 		p country	
+	 		p country
 
 	 		#Initialize Mechanize
 			agent = Mechanize.new
@@ -121,7 +121,7 @@ class IndicesController < ApplicationController
 			puts "Added to your database in #{total_time3} seconds."
 			puts
 			puts "Finished the job in #{total_time} seconds. Go have a look at your results!"
-			
+
  		end
  	end
 end

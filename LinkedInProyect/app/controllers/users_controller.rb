@@ -88,43 +88,6 @@ class UsersController < ApplicationController
 
   def simPerson myName
 
-    company = params[:company]
-
-    comp = Company.where(:name => company.to_s).pluck(:_id)[0].to_s
-    empl = User.where(:company_id => comp).pluck(:name, :skill_ids).to_a
-
-    skills = [];
-    occurences = [];
-
-    (0...(empl.length)).each do |i|
-      (0...(empl[i][1].to_a.length)).each do |j|
-        unless skills.include?(empl[i][1].to_a[j])
-          skills.push(empl[i][1].to_a[j]);
-          occurences.push(1);
-        else
-          occurences[skills.index(empl[i][1].to_a[j])] += 1;
-        end
-      end
-    end
-
-    total = 0;
-    (0...(occurences.length)).each do |i|
-      total += occurences[i]
-    end
-
-    index = Array.new(skills.length);
-    (0...(index.length)).each do |i|
-      index[i] = [skills[i], occurences[i].to_f/total];
-    end
-
-    indexSort = index.sort_by{|s,n| n }.reverse;
-    @top3 = [];
-
-    (0..2).each do |i|
-      @top3 << Skill.where(:_id => indexSort[i][0].to_s)
-    end
-
-    ################
 
     comp = Company.where(:name => company).pluck(:_id)[0].to_s
     allEmp = User.where(:company_id => comp).pluck(:name, :skill_ids).to_a

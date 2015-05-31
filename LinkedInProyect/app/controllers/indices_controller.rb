@@ -13,11 +13,11 @@ class IndicesController < ApplicationController
  		country = params[:index][:country].downcase
  		url = params[:index][:url]
 
- 		unless User.where(:url => url).exists?
+ 		unless User.where(:url => url.downcase).exists?
  			the_user = mine_me.mining url
  		end
 
- 		id = User.where(:url => url).pluck(:_id)[0].to_s
+ 		id = User.where(:url => url.downcase).pluck(:_id)[0].to_s
 
  		company_exists = crawler.search company, country
  		if(company_exists)
@@ -52,14 +52,14 @@ class IndicesController < ApplicationController
 					user_name = the_user[0]
 					user_url = url
 
-					db_user = User.find_by name: user_name
+					db_user = User.find_by name: user_name.downcase
 					if(!db_user.present?) #create the entity
 						db_user = User.new(:name => user_name, :url => user_url)
 						db_user.save
 					end
 
 					#Create the company if Doesn't exist
-					db_company = Company.find_by name: the_user[2][0]
+					db_company = Company.find_by name: the_user[2][0].downcase
 					if(!db_company.present?) #create the entity
 						db_company = Company.new(:name => the_user[2][0])
 						db_company.save
@@ -68,7 +68,7 @@ class IndicesController < ApplicationController
 					#Create the skills if Doesn't exist, and add the skills to the user
 					my_skills = db_user.skills
 					the_user[1].each do |skill|
-						db_skill = Skill.find_by name: skill
+						db_skill = Skill.find_by name: skill.downcase
 						if(!db_skill.present?) #create the entity
 							db_skill = Skill.new(:name => skill)
 							db_skill.save
@@ -111,7 +111,7 @@ class IndicesController < ApplicationController
 			agent.follow_meta_refresh = true
 
 			#Check if the company is already in the DB
-			db_company = Company.find_by name: company
+			db_company = Company.find_by name: company.downcase
 			p db_company
 			if(db_company.present?)
 				return true
@@ -127,20 +127,20 @@ class IndicesController < ApplicationController
 			puts "Adding your data to the MongoLab database. I can see the finish line now!"
 			beginning_time = Time.now
 
-			#Add data to the database. THIS MUST BE FILLED
+			#Add data to the database.
 			poi_tot.keys.each do |key|
 				#Create the user if Doesn't exist
 				user_name = poi_tot[key]["Name"]
 				user_url = poi_tot[key]["LinkedIn URL"]
 
-				db_user = User.find_by name: user_name
+				db_user = User.find_by name: user_name.downcase
 				if(!db_user.present?) #create the entity
 					db_user = User.new(:name => user_name, :url => user_url)
 					db_user.save
 				end
 
 				#Create the company if Doesn't exist
-				db_company = Company.find_by name: company
+				db_company = Company.find_by name: company.downcase
 				if(!db_company.present?) #create the entity
 					db_company = Company.new(:name => company)
 					db_company.save
@@ -149,7 +149,7 @@ class IndicesController < ApplicationController
 				#Create the skills if Doesn't exist, and add the skills to the user
 				my_skills = db_user.skills
 				poi_tot[key]["Skills"].each do |skill|
-					db_skill = Skill.find_by name: skill
+					db_skill = Skill.find_by name: skill.downcase
 					if(!db_skill.present?) #create the entity
 						db_skill = Skill.new(:name => skill)
 						db_skill.save

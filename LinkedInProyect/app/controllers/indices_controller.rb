@@ -28,16 +28,17 @@ class IndicesController < ApplicationController
  			render :confirm_search #this is the same as "indices"
  		else
 			crawler.crawl company, country
-			render :indices
+			redirect_to get_match_url(company, id)
  		end
  	end
 
  	def accept_crawl
 		company = params[:company]
  		country = params[:country]
+ 		id = params[:id]
  		crawler = WebCrawler.new
  		crawler.crawl company, country
-		render :indices
+		redirect_to get_match_url(company, id)
 	end
 
 	class MineMe

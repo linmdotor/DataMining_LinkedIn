@@ -7,9 +7,9 @@
 
 		tr
 			- if @country.present?
-				td = link_to 'Yes, repeat the search', accept_crawl_path(@company, @country)
+				td = link_to 'Yes, repeat the search', accept_crawl_path(@company, @country, @id)
 			- else
-				td = link_to 'Yes, repeat the search', accept_crawl_path(@company, "com")
+				td = link_to 'Yes, repeat the search', accept_crawl_path(@company, "com", @id)
 
 			td = link_to 'No, continue with the stored data', get_match_path(@company, @id)
 </div>

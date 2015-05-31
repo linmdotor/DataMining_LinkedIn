@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get '/similarities/:company/:id', to: 'similarities#output', as:'get_match'
 
   get 'confirm_search'    => 'indices#confirm_search'
-  get '/accept_crawl/:company/:country', to: 'indices#accept_crawl', as:'accept_crawl'
+  get '/accept_crawl/:company/:country/:id', to: 'indices#accept_crawl', as:'accept_crawl'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

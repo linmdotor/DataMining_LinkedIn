@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_path, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -85,39 +85,6 @@ class UsersController < ApplicationController
     @my_skills = @user.skills
   end
 
-
-  def simPerson myName
-
-
-    comp = Company.where(:name => company).pluck(:_id)[0].to_s
-    allEmp = User.where(:company_id => comp).pluck(:name, :skill_ids).to_a
-    myUser = User.where(:name => myName).pluck(:skill_ids).to_a
-
-    countSkills = Array.new(allEmp.length) {0};
-
-    myUser.each do |skill|
-      (0...(allEmp.length)).each do |i|
-        if allEmp[i].include?(skill)
-          countSkills[i] += 1;
-        end
-      end
-    end
-
-    (0...(countSkills.length)).each do |i|
-      countSkills[i] /= myUser.length.to_f;
-    end
-
-    max = countSkills.max;
-    bestFit = [];
-    (0...(countSkills.length)).each do |i|
-      if countSkills[i] == max
-        bestFit.push(i)
-      end
-    end
-
-    return bestFit
-
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

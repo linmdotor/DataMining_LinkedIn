@@ -1,18 +1,30 @@
 class IndicesController < ApplicationController
+
 	def index
 		@index = Index.new
  	end
 
  	#Call the crawler function
  	def create
+
  		crawler = WebCrawler.new
+ 		mine_me = MineMe.new
  		company = params[:index][:company].downcase
  		country = params[:index][:country].downcase
+ 		url = params[:index][:url]
+
+ 		unless User.where(:url => url).exists?
+ 			the_user = mine_me.mining url
+ 		end
+
+ 		id = User.where(:url => url).pluck(:_id)[0].to_s
 
  		company_exists = crawler.search company, country
  		if(company_exists)
  			@company = company
  			@country = country
+ 			@id = id
+
  			render :confirm_search #this is the same as "indices"
  		else
 			crawler.crawl company, country
@@ -26,6 +38,52 @@ class IndicesController < ApplicationController
  		crawler = WebCrawler.new
  		crawler.crawl company, country
 		render :indices
+	end
+
+	class MineMe
+		require_relative 'MineMe'
+
+		def mining url
+			the_user = mine_me_alg(url)
+
+			the_user.each do |key|
+					#Create the user if Doesn't exist
+					user_name = the_user[0]
+					user_url = url
+
+					db_user = User.find_by name: user_name
+					if(!db_user.present?) #create the entity
+						db_user = User.new(:name => user_name, :url => user_url)
+						db_user.save
+					end
+
+					#Create the company if Doesn't exist
+					db_company = Company.find_by name: the_user[2][0]
+					if(!db_company.present?) #create the entity
+						db_company = Company.new(:name => the_user[2][0])
+						db_company.save
+					end
+
+					#Create the skills if Doesn't exist, and add the skills to the user
+					my_skills = db_user.skills
+					the_user[1].each do |skill|
+						db_skill = Skill.find_by name: skill
+						if(!db_skill.present?) #create the entity
+							db_skill = Skill.new(:name => skill)
+							db_skill.save
+						end
+
+						unless my_skills.include? db_skill
+					      db_user.skills << db_skill
+					      db_user.save
+					    end
+					end
+
+					#Add the company to the user
+					db_user.company = db_company
+				    db_user.save
+				end
+		end
 	end
 
  	class WebCrawler
@@ -44,9 +102,6 @@ class IndicesController < ApplicationController
 
  		def search company, country
  			#This is to debug the app, it's displayed on the console
-	 		p "**" * 70
-	 		p company
-	 		p country
 
 	 		#Initialize Mechanize
 			agent = Mechanize.new
@@ -70,8 +125,6 @@ class IndicesController < ApplicationController
 			poi_tot, total_time1, total_time2 = webcrawlerfunc(company, country)
 			puts "Adding your data to the MongoLab database. I can see the finish line now!"
 			beginning_time = Time.now
-
-			puts poi_tot
 
 			#Add data to the database. THIS MUST BE FILLED
 			poi_tot.keys.each do |key|
@@ -106,8 +159,6 @@ class IndicesController < ApplicationController
 				      db_user.save
 				    end
 				end
-
-				puts "***" * 12
 
 				#Add the company to the user
 				db_user.company = db_company

@@ -17,7 +17,7 @@ table
     tr
       td = link_to "LinkedIn", user.url, :target => "_blank"
   tr
-  	th His/hers skills
+    th His/hers skills
   - @theSkills.each do |skill|
     tr
       td = skill[0].name.gsub(/[^A-Za-z\-]/, '')

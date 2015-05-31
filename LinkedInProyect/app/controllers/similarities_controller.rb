@@ -6,19 +6,19 @@ class SimilaritiesController < ApplicationController
 
   def create
     company = params[:similarity][:company].downcase
-    username = params[:similarity][:name].downcase
+    id = params[:similarity][:id]
 
-    simSkills company
-    simEmpl company, username
+    sim_skills company
+    sim_empl company, id
     render :output
   end
 
   def output
     company = params[:company]
-    username = params[:name]
+    id = params[:id]
 
     sim_skills company
-    sim_empl company, username
+    sim_empl company, id
   end
 
   def sim_skills company
@@ -60,25 +60,32 @@ class SimilaritiesController < ApplicationController
   end
 
 
-  def sim_empl company, username
+  def sim_empl company, id
 
     comp = Company.where(:name => company).pluck(:_id)[0].to_s
     allEmp = User.where(:company_id => comp).pluck(:name, :skill_ids).to_a
-    myUser = User.where(:name => username.downcase).pluck(:skill_ids).to_a
+    myUser = User.where(:_id => id).pluck(:skill_ids).to_a
 
     countSkills = Array.new(allEmp.length) {0};
 
-    myUser.each do |skill|
+    myUser[0].each do |skill|
       (0...(allEmp.length)).each do |i|
-        if allEmp[i].include?(skill)
+        if allEmp[i][1].include?(skill)
           countSkills[i] += 1;
         end
       end
     end
 
+    division = countSkills
+
     (0...(countSkills.length)).each do |i|
-      countSkills[i] /= myUser.length.to_f;
+      puts "***************"
+      puts allEmp[i][0]
+      puts countSkills[i] / (myUser[0].length + allEmp[i][1].length  - division[i]).to_f;
+      countSkills[i] /= (myUser[0].length + allEmp[i][1].length - division[i]).to_f;
     end
+
+    puts countSkills.max
 
     max = countSkills.max;
     bestFit = [];

@@ -29,9 +29,6 @@ def webcrawlerfunc(company, country)
 		prefix = country
 	end
 
-	puts company
-	puts prefix
-
 	#Do a Google search of "experience 'Insert_Company' LinkedIn"
 	page = agent.get("https://www.google.com/ncr")
 	page = agent.get("https://www.google.#{prefix}")
@@ -68,7 +65,7 @@ def webcrawlerfunc(company, country)
 	#Remove duplicates in link_url to save computational time.
 	link_url = link_url.uniq
 
-	#Click each link in link_url, see if the person has experience from 'Insert_Company' and in that case, 
+	#Click each link in link_url, see if the person has experience from 'Insert_Company' and in that case,
 	#save their skills and URL in a hash poi with their name.
 	beginning_time = Time.now
 	poi = Hash.new
@@ -124,7 +121,7 @@ def webcrawlerfunc(company, country)
 
 	#Merge the hashes poi and poi_also, so that all results are in one hash. Store this in the new hash poi_tot, which is given the parent key "company name".
 	poi_merge = poi.merge(poi_also)
-	
+
 	#poi_tot = Hash.new
 	#poi_tot[company] = poi_merge
 	poi_tot = poi_merge

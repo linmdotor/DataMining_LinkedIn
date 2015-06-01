@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :similarities
   resources :about
 
+  post '/indices/index'
   get '/similarities/:company/:id', to: 'similarities#output', as:'get_match'
 
   get 'confirm_search'    => 'indices#confirm_search'

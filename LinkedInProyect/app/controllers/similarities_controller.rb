@@ -111,5 +111,4 @@ class SimilaritiesController < ApplicationController
 
   end
 
-
 end

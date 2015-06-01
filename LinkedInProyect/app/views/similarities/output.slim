@@ -25,4 +25,9 @@
         td = skill[0].name.gsub(/[^A-Za-z\-]/, '')
 
 - if @top3.length == 0
-h1 No company found
+h1 We could not get any results from your search. <br> It either depends on the company or country. <br> Please try again.
+
+= button_to "Return", "/indices/index"
+
+
+

@@ -1,23 +1,28 @@
-table
-  tr
-    th Top 3 skills
+- if @top3.length > 0
 
-  - @top3.each do |skill|
+  table
     tr
-      td = skill[0].name.gsub(/[^A-Za-z\-]/, '')
+      th Top 3 skills
+
+    - @top3.each do |skill|
+      tr
+        td = skill[0].name.gsub(/[^A-Za-z\-]/, '')
 
 
-table
-  tr
-    th Best fit within company
+  table
+    tr
+      th Best fit within company
 
-  - @theBest.each do |user|
+    - @theBest.each do |user|
+      tr
+        td = user.name
+      tr
+        td = link_to "LinkedIn", user.url, :target => "_blank"
     tr
-      td = user.name
-    tr
-      td = link_to "LinkedIn", user.url, :target => "_blank"
-  tr
-    th His/hers skills
-  - @theSkills.each do |skill|
-    tr
-      td = skill[0].name.gsub(/[^A-Za-z\-]/, '')
+      th His/hers skills
+    - @theSkills.each do |skill|
+      tr
+        td = skill[0].name.gsub(/[^A-Za-z\-]/, '')
+
+- if @top3.length == 0
+h1 No company found

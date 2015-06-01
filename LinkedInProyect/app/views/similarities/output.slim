@@ -1,33 +1,34 @@
 - if @top3.length > 0
+  <div class="jumbotron", id:"jumbotop3">
+    <div class="row">
+      <div class="col-xs-6 col-md-3 col-md-offset-2", id:"top3text">
+        h2 Top 3 skills 
+        - @top3.each do |skill|
+          <i class="fa fa-cog"></i> 
+          = skill[0].name.gsub(/[^A-Za-z\-]/, '')
+          <br><br>
+      </div>
 
-  table
-    tr
-      th Top 3 skills
-
-    - @top3.each do |skill|
-      tr
-        td = skill[0].name.gsub(/[^A-Za-z\-]/, '')
-
-
-  table
-    tr
-      th Best fit within company
-
-    - @theBest.each do |user|
-      tr
-        td = user.name
-      tr
-        td = link_to "LinkedIn", user.url, :target => "_blank"
-    tr
-      th His/hers skills
-    - @theSkills.each do |skill|
-      tr
-        td = skill[0].name.gsub(/[^A-Za-z\-]/, '')
+      <div class="col-xs-6 col-md-4 col-md-offset-2">
+        h2 Best fit within company
+        - @theBest.each do |user|
+          <i class="fa fa-cog"></i> 
+          = user.name
+          <br><br>
+          <i class="fa fa-cog"></i> 
+          = link_to "Click here to visit his/her LinkedIn profile!", user.url, :target => "_blank", class:"resultprof"
+      </div>
+    </div>
+  </div>
 
 - if @top3.length == 0
-h1 We could not get any results from your search. <br> It either depends on the company or country. <br> Please try again.
-
-= button_to "Return", "/indices/index"
+  <div class="center jumbotron", id:"badpage">
+    <i class="fa fa-frown-o fa-3x"></i>
+    <div class="badtext", id:"badtext">
+      h1 Ops! We could not get any results from your search.<br> It either depends on the company or country. <br> Please try again.
+    </div>
+    = button_to "Return", "/indices/index"
+  </div>
 
 
 

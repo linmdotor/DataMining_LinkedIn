@@ -1,12 +1,12 @@
 = simple_form_for(@index) do |f|
 
-  | We need the url to your public LinkedIn-profile
-  = f.input :url
+  | We need the url to your public LinkedIn-profile:
+  = f.input :url, placeholder:"   LinkedIn URL goes here.", label:false
 
   | What company are you interested in?
-  = f.input :company
+  = f.input :company, placeholder:"  Company name goes here.", label:false
 
   | Where do most of the company employees reside?
-  = f.input :country
+  = f.input :country, label:false
 
-  = f.button :submit
+  = f.button :submit, "Submit"

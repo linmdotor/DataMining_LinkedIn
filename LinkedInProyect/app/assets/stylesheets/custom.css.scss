@@ -123,7 +123,7 @@ h4 {
   margin-bottom: 15px;
 }
 
-.linkedin, .github, .user, .email{
+.linkedin, .github, .user, .email, .yeslink, .nolink, .resultprof, .letsgo{
   color: #303030;
   font-family: "League Gothic";
   &:hover{
@@ -140,4 +140,44 @@ h4 {
   &:visited{
     color: #303030;
   }
+}
+
+#jumbotop3{
+  margin:50px 0px; padding:0px;
+  text-align:center;
+}
+
+#top3text{
+  width:500px;
+  margin:0px auto;
+  text-align:left;
+  padding:15px;
+  border:1px dashed #333;
+  background-color:#000;
+}
+
+h2 {
+  font-size: 2em;
+  letter-spacing: 0px;
+  margin-bottom: 5px;
+  text-align: none;
+  line-height: 1;
+  font-family: "League Gothic"
+}
+
+#welcomepage{
+  text-align: left;
+}
+
+.letsgo1{
+  text-align: center;
+}
+
+h5 {
+  font-size: 1em;
+  letter-spacing: 0px;
+  margin-bottom: 5px;
+  text-align: none;
+  line-height: 1;
+  font-family: "League Gothic"
 }

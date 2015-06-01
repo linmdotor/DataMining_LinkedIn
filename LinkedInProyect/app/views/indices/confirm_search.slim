@@ -1,15 +1,15 @@
-
-<div class="center jumbotron", id:"aboutpage">
-
-	table
-		tr
-			td colspan="2" It seems the company you are searching for is already in the database. Do you still want to search for data with a crawler?
-
-		tr
-			- if @country.present?
-				td = link_to 'Yes, repeat the search', accept_crawl_path(@company, @country, @id)
+<div class="jumbotron">
+	h4 It seems the company you are searching for is already in the database. Do you still want to search for data with a crawler?
+	<div class="row">
+	 	<div class="col-xs-6 col-md-3 col-md-offset-2">
+	 		- if @country.present?
+				= link_to 'Yes, repeat the search!', accept_crawl_path(@company, @country, @id), class:"yeslink"
 			- else
-				td = link_to 'Yes, repeat the search', accept_crawl_path(@company, "com", @id)
+				= link_to 'Yes, repeat the search!', accept_crawl_path(@company, "com", @id), class:"yeslink"
 
-			td = link_to 'No, continue with the stored data', get_match_path(@company, @id)
+	 	</div>
+	  	<div class="col-xs-6 col-md-3 col-md-offset-2">
+	  		= link_to 'No, continue with the stored data.', get_match_path(@company, @id), class:"nolink"
+	  	</div>
+	</div>
 </div>

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'indices#index'
+  root 'static_pages#home'
 
-  get 'home'    => 'static_pages#home'
+  get 'home'    => 'indices#index'
   get 'about'   => 'static_pages#about'
   get 'crew'    => 'static_pages#crew'
   get 'contact'    => 'static_pages#help'

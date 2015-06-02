@@ -3,9 +3,9 @@
 	<div class="row">
 	 	<div class="col-xs-6 col-md-3 col-md-offset-2">
 	 		- if @country.present?
-				= link_to 'Yes, repeat the search!', accept_crawl_path(@company, @country, @id), class:"yeslink"
+				= link_to 'Yes, repeat the search!', accept_crawl_path(@company, @country, @id), class:"yeslink", data: { confirm: "Please notice that this process could take some time"}
 			- else
-				= link_to 'Yes, repeat the search!', accept_crawl_path(@company, "com", @id), class:"yeslink"
+				= link_to 'Yes, repeat the search!', accept_crawl_path(@company, "com", @id), class:"yeslink", data: { confirm: "Please notice that this process could take some time"}
 
 	 	</div>
 	  	<div class="col-xs-6 col-md-3 col-md-offset-2">

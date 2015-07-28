@@ -3,10 +3,8 @@ development:
   sessions:
     # Defines the default session. (required)
     default:
-        
       #uri: 'mongodb://USER:PASSWORD@ds039211.mongolab.com:39211/linkedin_project'
       
-
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
       database: linkedin_app_development
@@ -86,3 +84,41 @@ production:
         # low amounts for fast failures.
         max_retries: 1
         retry_interval: 0
+
+###
+# development:
+#   sessions:
+#     default:
+
+#       uri: 'mongodb://pwheden:2.5liter/dagLAB@ds039211.mongolab.com:39211/linkedin_project'
+
+#       options:
+
+#         max_retries: 30
+#         retry_interval: 1
+#         timeout: 15
+#         refresh_interval: 10
+# test:
+#   sessions:
+#     default:
+
+#       uri: 'mongodb://pwheden:2.5liter/dagLAB@ds039211.mongolab.com:39211/linkedin_project'
+
+#       options:
+
+#         max_retries: 30
+#         retry_interval: 1
+#         timeout: 15
+#         refresh_interval: 10
+# production:
+#   sessions:
+#     default:
+
+#       uri: 'mongodb://pwheden:2.5liter/dagLAB@ds039211.mongolab.com:39211/linkedin_project'
+
+#       options:
+
+#         max_retries: 30
+#         retry_interval: 1
+#         timeout: 15
+#         refresh_interval: 10

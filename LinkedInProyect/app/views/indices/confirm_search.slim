@@ -1,11 +1,11 @@
 <div class="jumbotron">
-	h4 It seems the company you are searching for is already in the database. Do you still want to search for data with a crawler?
+	h4 It seems the company you are searching for is already in the database. Do you still want to search for more data?
 	<div class="row">
 	 	<div class="col-xs-6 col-md-3 col-md-offset-2">
 	 		- if @country.present?
-				= link_to 'Yes, repeat the search!', accept_crawl_path(@company, @country, @id), class:"yeslink", data: { confirm: "Please notice that this process could take some time"}
+				= link_to 'Yes, repeat the search!', accept_crawl_path(@company, @country, @id), class:"yeslink", data: { confirm: "Please notice that this process could take up to 5 minutes. Go grab a cup of coffee and hold on tight!"}
 			- else
-				= link_to 'Yes, repeat the search!', accept_crawl_path(@company, "com", @id), class:"yeslink", data: { confirm: "Please notice that this process could take some time"}
+				= link_to 'Yes, repeat the search!', accept_crawl_path(@company, "com", @id), class:"yeslink", data: { confirm: "Please notice that this process could take up to 5 minutes. Go grab a cup of coffee and hold on tight!"}
 
 	 	</div>
 	  	<div class="col-xs-6 col-md-3 col-md-offset-2">
